@@ -8,9 +8,9 @@ $(function () {
 
 window.commonHelper = {
   formatFileSize: function (size) {
-    if (size > 1048576) return parseInt(size / 1048576) + ' Мб';
-    if (size > 1024) return parseInt(size / 1024) + ' Кб';
-    return size + ' байт';
+    if (size > 1048576) return parseInt(size / 1048576) + ' Mb';
+    if (size > 1024) return parseInt(size / 1024) + ' Kb';
+    return size + ' byte';
   }
 };
 
@@ -139,16 +139,16 @@ if ($.fn.dataTable) {
     "autoWidth": false,
     "sDom": "<'row'<'col-sm-6'f><'col-sm-6'l>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
     "language": {
-      "processing": "Подождите...",
-      "search": "Поиск:",
-      "lengthMenu": "Показать _MENU_ записей",
-      "info": "Записи с _START_ до _END_ из _TOTAL_ записей",
-      "infoEmpty": "Записи с 0 до 0 из 0 записей",
-      "infoFiltered": "(отфильтровано из _MAX_ записей)",
+      "processing": "Please wait...",
+      "search": "Search:",
+      "lengthMenu": "Show _MENU_ records",
+      "info": "Records from _START_ to _END_ from _TOTAL_ records",
+      "infoEmpty": "Records from 0 to 0 from 0 records",
+      "infoFiltered": "(filtered from _MAX_ records)",
       "infoPostFix": "",
-      "loadingRecords": "Загрузка записей...",
-      "zeroRecords": "Записи отсутствуют.",
-      "emptyTable": "В таблице отсутствуют данные",
+      "loadingRecords": "Loading records...",
+      "zeroRecords": "No records available.",
+      "emptyTable": "No data in the table",
       "paginate": {
         "first": "<<",
         "previous": "<",
@@ -156,8 +156,8 @@ if ($.fn.dataTable) {
         "last": ">>"
       },
       "aria": {
-        "sortAscending": ": активировать для сортировки столбца по возрастанию",
-        "sortDescending": ": активировать для сортировки столбца по убыванию"
+        "sortAscending": ": activate to sort the column in ascending order",
+        "sortDescending": ": activate to sort the column in descending order"
       }
     }
   });

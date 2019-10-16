@@ -45,7 +45,9 @@
     if ($sheet.hasClass('pivot-sheet')) {
       $sheet.ionPivot({
         params: opts.params,
-        locale: <%- JSON.stringify(locale)%>
+        locale: <%- JSON.stringify(locale)%>,
+        url: url,
+        cb: cb
       });
     } else {
       $sheet.sheet({

@@ -218,7 +218,7 @@
           let f = $('#f_' + $this.attr('id') + '_' + fields[i].field);
           let v = f.val();
           f.find('option').remove();
-          f.append(new Option('нет', '__none__', false, v == '__none__'));
+          f.append(new Option('no', '__none__', false, v == '__none__'));
           for (let j = 0; j < fields[i].filterValues.length; j++) {
             let newOption = new Option(fields[i].filterValues[j], fields[i].filterValues[j], false, v == fields[i].filterValues[j]);
             f.append(newOption);
@@ -423,7 +423,7 @@
       $.post(url, filter)
         .done(options.cb || cb)
         .fail(function () {
-          console.error('не удалось получить данные по адресу ' + url);
+          console.error('failed to get data to address ' + url);
         }).fail(processAjaxError);
     } else {
       (options.cb || cb)([]);
@@ -475,7 +475,7 @@
           if (data === 'need-filter') {
             $('tbody', $this).html(
               '<tr><td colspan="' + fields.length + '">' +
-              (nfm || 'Пожалуйста, укажите параметры фильтра.') + '</td></tr>'
+              (nfm || 'Please enter filter options.') + '</td></tr>'
             );
             $this.trigger('report-loaded');
             return;

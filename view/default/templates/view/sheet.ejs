@@ -39,7 +39,7 @@
             <tr>
               <td><%= info.source %></td>
               <td class="text-center">
-                <%= info.buildFinished %> <%= info.ready ? '' : '- refresh' %>
+                <%= info.buildFinished %> <%= info.ready ? '' : '- updating' %>
               </td>
             </tr>
             <% }); %>
@@ -72,7 +72,7 @@
     <% if (sourcesInfo) { %>
     <div id="bi-sheets-loader" class="bi-sheets-loader">
       <span class="loader fa fa-refresh fa-spin"></span>
-      <span class="">Data loading</span>
+      <span class="">Loading data ...</span>
     </div>
     <% } %>
 
@@ -149,7 +149,7 @@
                   <%if (sheet.type === 'list') {
                   if (Array.isArray(f.select)) {%>
                   <select name="<%=f.field%>" class="form-control select2">
-                    <option value="__none__">not</option>
+                    <option value="__none__"></option>
                     <%f.select.forEach(s => {%>
                     <option value="<%=s%>"><%=s%></option>
                     <%});%>
@@ -158,12 +158,12 @@
                   <select id="f_<%=sheet.name%>_<%=f.field%>" name="<%=f.field%>"
                           class="form-control select2"
                           data-filter="<%=module%>/<%=mine.canonicalName()%>/<%=report.name()%>/<%=sheet.name%>/<%=f.field%>/filter">
-                    <option value="__none__">not</option>
+                    <option value="__none__"></option>
                   </select>
                   <%}
                   } else {%>
                   <select id="f_<%=sheet.name%>_<%=f.field%>" name="<%=f.field%>" class="form-control select2">
-                    <option value="__none__">not</option>
+                    <option value="__none__"></option>
                   </select>
                   <%}%>
                   <% } %>
@@ -260,7 +260,7 @@
       $.get("<%= module %>/<%= mine.canonicalName() %>/check", function (data) {
         var $info = $('#progress-info').empty();
         if (data.currentSource) {
-          $info.html('<span class="fa fa-refresh fa-spin mr5"></span> Preparing the data source <b>' + data.currentSource.caption + '</b>');
+          $info.html('<span class="fa fa-refresh fa-spin mr5"></span> The data source is being prepared: <b>' + data.currentSource.caption + '</b>');
         }
         var $progress = $('#progress');
         $progress.find('.progress-bar').css('width', data.progress + '%').html(data.progress + '%');
@@ -283,7 +283,7 @@
     var $alert = $('#no-source-alert').hide();
     var $btn = $(this).hide();
     $.get('<%= module %>/<%= mine.canonicalName() %>/build').done(function () {
-      messageCallout.info('Data mine Assembly started');
+      messageCallout.info('Data mine Assembly started.');
       $('#progress').show().find('.progress-bar').css('width', '0').html('');
       $('#progress-info').empty().show();
       statusCheck();

@@ -28,23 +28,23 @@
   }
   
   var aggregatorsNames = {
-    "count": "Кол-во",
-    "count Unique Values": "Кол-во уникальных",
-    "list Unique Values": "Список уникальных",
-    "sum": "Сумма",
-    "integer Sum": "Сумма целых",
-    "avg": "Среднее",
-    "min": "Минимум",
-    "max": "Максимум",
-    "sum over Sum": "Сумма по сумме",
-    "80% Upper Bound": "80% верхней границы",
-    "80% Lower Bound": "80% нижней границы",
-    "sum as Fraction of Total": "Доля по всему",
-    "sum as Fraction of Rows": "Доля по строке",
-    "sum as Fraction of Columns": "Доля по столбцу",
-    "count as Fraction of Total": "Кол-во по всему",
-    "count as Fraction of Rows": "Кол-во по строке",
-    "count as Fraction of Columns": "Кол-во по строке"
+    "count": "Count",
+    "count Unique Values": "Count Unique Values",
+    "list Unique Values": "list Unique Values",
+    "sum": "Sum",
+    "integer Sum": "Integer Sum",
+    "avg": "Average",
+    "min": "min",
+    "max": "max",
+    "sum over Sum": "Sum over Sum",
+    "80% Upper Bound": "80% Upper Bound",
+    "80% Lower Bound": "80% Lower Bound",
+    "sum as Fraction of Total": "Sum as Fraction of Total",
+    "sum as Fraction of Rows": "Sum as Fraction of Rows",
+    "sum as Fraction of Columns": "Sum as Fraction of Columns",
+    "count as Fraction of Total": "Count as Fraction of Total",
+    "count as Fraction of Rows": "Count as Fraction of Rows",
+    "count as Fraction of Columns": "Count as Fraction of Rows"
   };
 
   $.fn.ionPivot = function (options) {
@@ -55,7 +55,7 @@
       options = options || {};
       options.locale = options.locale || {lang: 'en'};
       var _this = this;
-      var url = $this.attr('fetch-url');
+      var url = options.url || $this.attr('fetch-url');
       var cols = JSON.parse($this.attr('pivot-cols'));
       var rows = JSON.parse($this.attr('pivot-rows'));
       var vals = JSON.parse($this.attr('pivot-data'));
@@ -151,7 +151,7 @@
         }
       }
 
-      var agr = 'Кол-во';
+      var agr = 'Number of';
       if (aggregations) {
         aggregations = JSON.parse(aggregations);
         if (aggregations && aggregations.length) {
@@ -211,12 +211,13 @@
         if (options && options.params) {
           prms = options.params;
         }
+        var cb = function (dt) {
+          construct(dt);
+        };
         $.post(url, prms)
-          .done(function (dt) {
-            construct(dt);
-          })
+          .done(options.cb || cb)
           .fail(function () {
-            console.error('не удалось получить данные по адресу ' + url);
+            console.error('failed to get data to address ' + url);
           }).fail(processAjaxError);
       }
     });
