@@ -28,23 +28,23 @@
   }
   
   var aggregatorsNames = {
-    "count": __("Кол-воname.count"),
-    "count Unique Values": __("js.pivot.agrname.countUniqueValues"),
-    "list Unique Values": __("js.pivot.agrname.listUniqueValues"),
-    "sum": __("js.pivot.agrname.sum"),
-    "integer Sum": __("js.pivot.agrname.integerSum"),
-    "avg": __("js.pivot.agrname.avg"),
-    "min": __("js.pivot.agrname.min"),
-    "max": __("js.pivot.agrname.max"),
-    "sum over Sum": __("js.pivot.agrname.sumOverSum"),
-    "80% Upper Bound": __("js.pivot.agrname.UpperBound"),
-    "80% Lower Bound": __("js.pivot.agrname.LowerBound"),
-    "sum as Fraction of Total": __("js.pivot.agrname.sumFractionTotal"),
-    "sum as Fraction of Rows": __("js.pivot.agrname.sumFractionRows"),
-    "sum as Fraction of Columns": __("js.pivot.agrname.sumFractionColumns"),
-    "count as Fraction of Total": __("js.pivot.agrname.countFractionTotal"),
-    "count as Fraction of Rows": __("js.pivot.agrname.countFractionRows"),
-    "count as Fraction of Columns": __("js.pivot.agrname.countFractionColumns")
+    "count": __("Кол-во"),
+    "count Unique Values": __("Кол-во уникальных"),
+    "list Unique Values": __("Кол-воname.listUniqueValues"),
+    "sum": __("Сумма"),
+    "integer Sum": __("Сумма целых"),
+    "avg": __("Среднее"),
+    "min": __("Минимум"),
+    "max": __("Максимум"),
+    "sum over Sum": __("Сумма по сумме"),
+    "80% Upper Bound": __("80% верхней границы"),
+    "80% Lower Bound": __("80% нижней границы"),
+    "sum as Fraction of Total": __("Доля по всему"),
+    "sum as Fraction of Rows": __("Доля по строке"),
+    "sum as Fraction of Columns": __("Доля по столбцу"),
+    "count as Fraction of Total": __("Кол-во по всему"),
+    "count as Fraction of Rows": __("Кол-во по строке"),
+    "count as Fraction of Columns": __("Кол-во по строке")
   };
 
   $.fn.ionPivot = function (options) {
