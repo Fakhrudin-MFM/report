@@ -8,9 +8,9 @@ $(function () {
 
 window.commonHelper = {
   formatFileSize: function (size) {
-    if (size > 1048576) return parseInt(size / 1048576) + __('js.common.mb');
-    if (size > 1024) return parseInt(size / 1024) + __('js.common.mb');
-    return size + __('js.common.byte');
+    if (size > 1048576) return parseInt(size / 1048576) + __('Мб');
+    if (size > 1024) return parseInt(size / 1024) + __('Мб');
+    return size + __('байт');
   }
 };
 
@@ -139,24 +139,24 @@ if ($.fn.dataTable) {
     autoWidth: false,
     sDom: "<'row'<'col-sm-6'f><'col-sm-6'l>r>t<'row'<'col-sm-6'i><'col-sm-6'p>>",
     language: {
-      processing: __('js.common.dt.processing'),
-      search: __('js.common.dt.search'),
-      lengthMenu: __('js.common.dt.lengthMenu'),
-      info: __('js.common.dt.info'),
-      infoEmpty: __('js.common.dt.infoEmpty'),
-      infoFiltered: __('js.common.dt.infoFiltered'),
+      processing: __('Подождите...'),
+      search: __('Поиск:'),
+      lengthMenu: __('Показать по _MENU_'),
+      info: __('Записи с _START_ до _END_ из _TOTAL_ записей'),
+      infoEmpty: __('Записи с 0 до 0 из 0 записей'),
+      infoFiltered: __('(всего _MAX_)'),
       infoPostFix: __('js.common.dt.infoPostFix'),
-      loadingRecords: __('js.common.dt.loadingRecords'),
-      zeroRecords: __('js.common.dt.zeroRecords'),
-      emptyTable: __('js.common.dt.emptyTable'),
+      loadingRecords: __('Загрузка записей...'),
+      zeroRecords: __('Записи отсутствуют.'),
+      emptyTable: __('В таблице отсутствуют данные'),
       paginate: {
-        first: __('js.common.dt.paginate.first'),
-        previous: __('js.common.dt.paginate.previous'),
-        next: __('js.common.dt.paginate.next'),
-        last: __('js.common.dt.paginate.last')
+        first: __('<<'),
+        previous: __('<'),
+        next: __('>'),
+        last: __('>>')
       },
       aria: {
-        sortAscending: __('js.common.dt.aria.sortAscending'),
+        sortAscending: __(': активировать для сортировки столбца по возрастанию'),
         sortDescending: __('js.common.dt.aria.sortDescending')
       }
     }

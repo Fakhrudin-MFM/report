@@ -16,20 +16,20 @@
     var showSheets = false;
     if (sourcesInfo) {
       showSheets = true;
-      btnText = __('templates.default.view.report.refreshInfo');
+      btnText = __('Обновить исходные данные');
     %>
 
     <div class="report-info">
       <div class="report-info-head text-primary">
-        <span class="glyphicon"></span><%=__('templates.default.view.report.title')%>
+        <span class="glyphicon"></span><%=__('Журнал сборок')%>
       </div>
       <div class="report-info-body">
         <div class="table-responsive">
           <table class="table table-striped table-condensed" style="width:auto">
             <thead>
             <tr>
-              <th><%=__('templates.default.view.report.source')%></th>
-              <th><%=__('templates.default.view.report.sourceDate')%></th>
+              <th><%=__('Источник данных')%></th>
+              <th><%=__('Дата последней сборки')%></th>
             </tr>
             </thead>
             <tbody>
@@ -38,7 +38,7 @@
             <tr>
               <td><%=info.source %></td>
               <td class="text-center">
-                <%= info.buildFinished %> <%=info.ready ? '' : `- ${__('templates.default.view.report.refreshing')}`%>
+                <%= info.buildFinished %> <%=info.ready ? '' : `- ${__('обновляется')}`%>
               </td>
             </tr>
             <% }); %>
@@ -50,11 +50,11 @@
 
       <%
     } else {
-      btnText = __('templates.default.view.report.prepareInfo');
+      btnText = __('Подготовить исходные данные');
     %>
     <div class="info">
       <div id="no-source-alert" class="alert alert-warning">
-        <%=__('templates.default.view.report.noPreparedInfo')%>
+        <%=__('Не подготовлены исходные данные')%>
       </div>
     </div>
     <% } %>
@@ -72,7 +72,7 @@
     <div id="bi-sheets-loader" class="bi-sheets-loader">
       <span class="loader fa fa-refresh fa-spin"></span>
       <span class="">
-        <%=__('templates.default.view.report.loading')%>
+        <%=__('Загрузка данных...')%>
       </span>
     </div>
     <% } %>
@@ -105,7 +105,7 @@
                 <span class="glyphicon glyphicon-filter"></span>
               </button>
               <button class="apply-filters btn btn-primary apply pull-right" data-sheet="<%= sheet.name %>">
-                <%=__('templates.default.view.report.apply')%>
+                <%=__('Применить')%>
               </button>
             <% } %>
             <div class="range-filters-inputs">
@@ -167,7 +167,7 @@
               %>
               <tr class="filter">
                 <th colspan="<%= sheet.fields.length%>" class="text-gray">
-                  <%=__('templates.default.view.report.tableFilters')%>
+                  <%=__('Табличные фильтры')%>
                 </th>
               </tr>
               <tr class="filter">
@@ -177,7 +177,7 @@
                     <%if (Array.isArray(f.select)) {%>
                         <select name="<%=f.field%>" class="form-control select2">
                           <option value="__none__">
-                            <%=__('templates.default.view.report.options.no')%>
+                            <%=__('нет')%>
                           </option>
                           <%f.select.forEach(s => {%>
                           <option value="<%=s%>"><%=s%></option>
@@ -188,13 +188,13 @@
                             class="form-control select2"
                             data-filter="<%=module%>/<%=mine.canonicalName()%>/<%=report.name()%>/<%=sheet.name%>/<%=f.field%>/filter">
                           <option value="__none__">
-                            <%=__('templates.default.view.report.options.no')%>
+                            <%=__('нет')%>
                           </option>
                         </select>
                     <%} else {%>
                         <select id="f_<%=sheet.name%>_<%=f.field%>" name="<%=f.field%>" class="form-control select2">
                           <option value="__none__">
-                            <%=__('templates.default.view.report.options.no')%>
+                            <%=__('нет')%>
                           </option>
                         </select>
                       <% } %>
@@ -231,7 +231,7 @@
             <%-partial('export-tools', {sheet: sheet})%>
             <% if (sheet.params) { %>
               <button class="apply-filters btn btn-primary apply pull-right" data-sheet="<%= sheet.name %>">
-                <%=__('templates.default.view.report.apply')%>
+                <%=__('Применить')%>
               </button>
             <%    for (let nm in sheet.params) {
                   if (sheet.params.hasOwnProperty(nm)) { %>
@@ -278,10 +278,10 @@
 
 <%
   const msg = {
-    loading: __('templates.default.view.report.script.loading'),
-    done: __('templates.default.view.report.script.done'),
-    started: __('templates.default.view.report.script.started'),
-    error: __('templates.default.view.report.script.error')
+    loading: __('Подготавливается источник данных'),
+    done: __('Выполнена сборка шахты данных.'),
+    started: __('Запущена сборка шахты данных.'),
+    error: __('Не удалось запустить сборку шахты данных.')
   }
 %>
 

@@ -28,7 +28,7 @@
   }
   
   var aggregatorsNames = {
-    "count": __("js.pivot.agrname.count"),
+    "count": __("Кол-воname.count"),
     "count Unique Values": __("js.pivot.agrname.countUniqueValues"),
     "list Unique Values": __("js.pivot.agrname.listUniqueValues"),
     "sum": __("js.pivot.agrname.sum"),
@@ -217,7 +217,7 @@
         $.post(url, prms)
           .done(options.cb || cb)
           .fail(function () {
-            console.error(__('js.pivot.ajaxFail', {url: url}));
+            console.error(__('не удалось получить данные по адресу %url', {url: url}));
           }).fail(processAjaxError);
       }
     });

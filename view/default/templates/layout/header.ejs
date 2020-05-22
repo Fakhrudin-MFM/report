@@ -2,7 +2,7 @@
 
   <span class="logo pull-left">
     <a href="/"><img src="<%=module%>/<%- typeof logo === 'string' ? logo : 'img/logo_light.png'%>"
-      alt="<%=__('templates.default.layout.header.adminPanel')%>" height="40"/></a>
+      alt="<%=__('admin panel')%>" height="40"/></a>
   </span>
 
   <nav>
@@ -16,7 +16,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
           <% let avatar = user.properties().avatar; %>
           <% if (avatar) { %>
-          <img class="user-avatar" src="<%= avatar.link %>" height="34" alt="<%=__('templates.default.layout.header.userAvatar')%>" />
+          <img class="user-avatar" src="<%= avatar.link %>" height="34" alt="<%=__('User avatar')%>" />
           <% } %>
 				  <span class="user-name">
             <span class="hidden-xs"><%= typeof user !== 'undefined' ? (user.name() || user.id()) : '-' %>
@@ -25,7 +25,7 @@
         </a>
         <ul class="dropdown-menu hold-on-click">
           <li>
-            <a href="<%=module%>/sign-out"><i class="fa fa-power-off"></i> <%=__('templates.default.layout.header.signOut')%></a>
+            <a href="<%=module%>/sign-out"><i class="fa fa-power-off"></i> <%=__('Выйти')%></a>
           </li>
         </ul>
       </li>
